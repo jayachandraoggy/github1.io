@@ -8,6 +8,7 @@ var pol = 0;//profitorloss
 var tsp=0;
 var spol = 0;
 var i=1;
+var j=1;
 alert("Enter bought history one by one and for every entry hit Submit");
 function addnew(){
 	if(i <= n){
@@ -37,10 +38,14 @@ function finish(){
 }
 function spcalculate(){
 	var sp = document.getElementById("sp");
-	var tsp=Number(tsp)+Number(sp.value);
 	var csp= (Number(sp.value) + 94.4859) * Number(gw.value);
-	//tcsp=tcsp+csp;
-	alert(csp);
-	spol = Number(csp) - Number(tvp);
-	alert(spol);
+	var tcsp=csp*n;
+	alert("Total Price receivable: Ru." + tcsp);
+	spol = Number(tcsp) - Number(tvp);
+	if(spol < 0){
+		alert("Loss: Ru."+spol);
+	}
+	else{
+		alert("Profit: Ru."+spol);
+	}
 }
