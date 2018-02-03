@@ -1,35 +1,35 @@
-var n=prompt("Enter no. :");
-var tgp=0;
-var tgg=0;
-var agp=0;
-var i=0;
+var n=prompt("Enter number of entries for the bought history: ");
+var tgp=0; //totalGoldprice
+var tgw=0;//totalGoldweight
+var agp=0;//avgGoldprice
+var vp = 0;//valueprice
+var tvp = 0;//totalvalueprice
+var pol = 0;//profitorloss
+var i=1;
+alert("Enter bought history one by one and for every entry hit Submit");
 function addnew(){
-	
-	if(i<n){
+	if(i <= n){
 	var gp = document.getElementById("gp");
-	var gg=document.getElementById("gg");
+	var gw=document.getElementById("gw");
 	tgp=Number(tgp)+Number(gp.value);
-	tgg=Number(tgg)+Number(gg.value);
-	alert("Entered Gold Price " +  gp.value + "\nEntered Bought Gold of grams "+ gg.value);
+	tgw=Number(tgw)+Number(gw.value);
+	vp = (Number(gp.value) + 94.4859) * Number(gw.value);
+	tvp = tvp + vp;
+	alert("Entry "+ i + "\nEntered Gold Price: Ru." + gp.value + "/g\nEntered Bought Gold weight: " + gw.value + "g");
 	i++;
 	}
-	else{
+	if(i > n){
 		agp=tgp/n;
-		alert("Average Gold price " + agp + "\nTotal Gold in Locker " + tgg);
+		//vp = (Number(gp.value) + 94.4859) * Number(gw.value);
+		//tvp = tvp + vp;
+		//alert(tvp);
+		alert("Average Gold price: Ru." + agp + "/g\nActual Value price: Ru."+tvp+ "\nTotal Gold in Locker: " + tgw + "g\n\nEnter current value in the form");
 	}
 }
 function finish()
 {
-	for(var i=0; i<t; i++)
-	{
-		//wait(1000);
-		//alert(gpa[i]+gga[i]);
-		var te=gpa[i];
-		//alert(t);
-		agp=agp+te;
-		tgg=tgg+gga[i];
-		
-	}
-	//alert(agp);
-	alert(agp);
+	var cvp = document.getElementById("cvp");
+	//alert(cvp.value);
+	pol = Number(cvp.value) - Number(tvp) - 10;
+	alert(pol);
 }
