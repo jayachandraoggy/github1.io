@@ -20,16 +20,17 @@ function addnew(){
 	}
 	if(i > n){
 		agp=tgp/n;
-		//vp = (Number(gp.value) + 94.4859) * Number(gw.value);
-		//tvp = tvp + vp;
-		//alert(tvp);
 		alert("Average Gold price: Ru." + agp + "/g\nActual Value price: Ru."+tvp+ "\nTotal Gold in Locker: " + tgw + "g\n\nEnter current value in the form");
 	}
 }
 function finish()
 {
 	var cvp = document.getElementById("cvp");
-	//alert(cvp.value);
-	pol = Number(cvp.value) - Number(tvp) - 10;
-	alert(pol);
+	pol = Number(cvp.value) - Number(tvp);
+	if(pol < 0){
+		alert("Loss: Ru." + pol);
+	}
+	else{
+		alert("Profit: Ru." + pol);
+	}
 }
