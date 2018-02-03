@@ -41,7 +41,7 @@ function spcalculate(){
 	var csp= (Number(sp.value) + 94.4859) * Number(gw.value);
 	var tcsp=csp*n;
 	alert("Total Price receivable: Ru." + tcsp);
-	spol = Number(tcsp) - Number(tvp);
+	spol = Number(tcsp) - Number(tvp)-10;
 	if(spol < 0){
 		alert("Loss: Ru."+spol);
 	}
