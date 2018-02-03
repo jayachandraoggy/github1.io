@@ -5,6 +5,8 @@ var agp=0;//avgGoldprice
 var vp = 0;//valueprice
 var tvp = 0;//totalvalueprice
 var pol = 0;//profitorloss
+var tsp=0;
+var spol = 0;
 var i=1;
 alert("Enter bought history one by one and for every entry hit Submit");
 function addnew(){
@@ -23,8 +25,7 @@ function addnew(){
 		alert("Average Gold price: Ru." + agp + "/g\nActual Value price: Ru."+tvp+ "\nTotal Gold in Locker: " + tgw + "g\n\nEnter current value in the form");
 	}
 }
-function finish()
-{
+function finish(){
 	var cvp = document.getElementById("cvp");
 	pol = Number(cvp.value) - Number(tvp);
 	if(pol < 0){
@@ -33,4 +34,13 @@ function finish()
 	else{
 		alert("Profit: Ru." + pol);
 	}
+}
+function spcalculate(){
+	var sp = document.getElementById("sp");
+	var tsp=Number(tsp)+Number(sp.value);
+	var csp= (Number(sp.value) + 94.4859) * Number(gw.value);
+	//tcsp=tcsp+csp;
+	alert(csp);
+	spol = Number(csp) - Number(tvp);
+	alert(spol);
 }
