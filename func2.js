@@ -18,34 +18,34 @@ function addnew(){
 	tgw=Number(tgw)+Number(gw.value);
 	vp = (Number(gp.value) + 94.4859) * Number(gw.value);
 	tvp = tvp + vp;
-	alert("Entry "+ i + "\nEntered Gold Price: Ru." + gp.value + "/g\nEntered Bought Gold weight: " + gw.value + "g");
+	alert("Entry "+ i + "\nEntered Gold Price: Rs." + gp.value + "/g\nEntered Bought Gold weight: " + gw.value + "g");
 	i++;
 	}
 	if(i > n){
 		agp=tgp/n;
-		alert("Average Gold price: Ru." + agp + "/g\nActual Value price: Ru."+tvp+ "\nTotal Gold in Locker: " + tgw + "g\n\nEnter current value in the form");
+		alert("Average Gold price: Rs." + agp + "/g\nActual Value price: Rs."+tvp+ "\nTotal Gold in Locker: " + tgw + "g\n\nEnter current value in the form");
 	}
 }
 function finish(){
 	var cvp = document.getElementById("cvp");
 	pol = Number(cvp.value) - Number(tvp);
 	if(pol < 0){
-		alert("Loss: Ru." + pol);
+		alert("Loss: Rs." + pol);
 	}
 	else{
-		alert("Profit: Ru." + pol);
+		alert("Profit: Rs." + pol);
 	}
 }
 function spcalculate(){
 	var sp = document.getElementById("sp");
-	var csp= (Number(sp.value) + 94.4859) * Number(gw.value);
-	var tcsp=csp*n;
-	alert("Total Price receivable: Ru." + tcsp);
+	var csp= Number(sp.value) * Number(tgw);
+	var tcsp=csp;
+	alert("Total Price receivable: Rs." + tcsp);
 	spol = Number(tcsp) - Number(tvp)-10;
 	if(spol < 0){
-		alert("Loss: Ru."+spol);
+		alert("Loss: Rs."+spol);
 	}
 	else{
-		alert("Profit: Ru."+spol);
+		alert("Profit: Rs."+spol);
 	}
 }
